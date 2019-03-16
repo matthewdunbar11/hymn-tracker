@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @service_song.service %>
+</p>
+
+<p>
+  <strong>Song:</strong>
+  <%= @service_song.song %>
+</p>
+
+<%= link_to 'Edit', edit_service_song_path(@service_song) %> |
+<%= link_to 'Back', service_songs_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @song.name %>
+</p>
+
+<p>
+  <strong>Page number:</strong>
+  <%= @song.page_number %>
+</p>
+
+<p>
+  <strong>Hymn book:</strong>
+  <%= @song.hymn_book.name %>
+</p>
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>

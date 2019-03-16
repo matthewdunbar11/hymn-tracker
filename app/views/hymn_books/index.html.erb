@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Hymn Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hymn_books.each do |hymn_book| %>
+      <tr>
+        <td><%= hymn_book.name %></td>
+        <td><%= link_to 'Show', hymn_book %></td>
+        <td><%= link_to 'Edit', edit_hymn_book_path(hymn_book) %></td>
+        <td><%= link_to 'Destroy', hymn_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hymn Book', new_hymn_book_path %>

@@ -1,0 +1,2 @@
+class HymnBook < ApplicationRecord
+end
