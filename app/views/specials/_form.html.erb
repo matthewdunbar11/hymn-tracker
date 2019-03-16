@@ -1,0 +1,27 @@
+<%= form_with(model: special, local: true) do |form| %>
+  <% if special.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(special.errors.count, "error") %> prohibited this special from being saved:</h2>
+
+      <ul>
+      <% special.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :service_id %>
+    <%= form.collection_select :service_id, Service.all, :id, :label, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :singer_id %>
+    <%= form.collection_select :singer_id, Singer.all, :id, :full_name, prompt: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

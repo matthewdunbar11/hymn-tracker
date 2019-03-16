@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_16_202802) do
+ActiveRecord::Schema.define(version: 2019_03_16_204315) do
 
   create_table "hymn_books", force: :cascade do |t|
     t.string "name"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 2019_03_16_202802) do
     t.index ["service_type_id"], name: "index_services_on_service_type_id"
   end
 
+  create_table "singers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "songs", force: :cascade do |t|
     t.string "name"
     t.integer "page_number"
@@ -48,6 +55,15 @@ ActiveRecord::Schema.define(version: 2019_03_16_202802) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["hymn_book_id"], name: "index_songs_on_hymn_book_id"
+  end
+
+  create_table "specials", force: :cascade do |t|
+    t.integer "service_id"
+    t.integer "singer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_specials_on_service_id"
+    t.index ["singer_id"], name: "index_specials_on_singer_id"
   end
 
   create_table "users", force: :cascade do |t|

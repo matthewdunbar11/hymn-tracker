@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :specials
+  resources :singers
   resources :service_songs
   resources :services
   resources :service_types

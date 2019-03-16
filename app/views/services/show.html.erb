@@ -10,5 +10,23 @@
   <%= @service.service_type.name %>
 </p>
 
+<h2>Songs</h2>
+<ul>
+  <% @service.songs.each do |song| %>
+    <li>
+      <%= song.name %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Specials</h2>
+<ul>
+  <% @service.specials.each do |special| %>
+    <li>
+      <%= special.singer.full_name %>
+    </li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_service_path(@service) %> |
 <%= link_to 'Back', services_path %>
