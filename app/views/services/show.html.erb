@@ -1,29 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @service.date %>
-</p>
+<h1><%= @service.service_type.name %> - <%= @service.date %></h1>
 
-<p>
-  <strong>Service type:</strong>
-  <%= @service.service_type.name %>
-</p>
-
-<h2>Songs</h2>
-<p><%= link_to 'Add', new_service_song_path(service_id: @service.id) %></p>
+<h2>Songs <%= link_to '+', new_service_song_path(service_id: @service.id) %></h2>
+<p></p>
+<p></p>
 <table>
   <tbody class="sortable">  <!-- sortable target -->
     <% @service.service_songs.order(:sort).each_with_sortable_id do |item, sortable_id| %>
       <tr id="<%= sortable_id %>">  <!-- Needs id tag on sorting elements -->
+        <td><strong><%= item.song.page_number %></strong></td>
+        <td> - </td>
         <td><%= item.song.name %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<h2>Specials</h2>
-<p><%= link_to 'Add', new_special_path %></p>
+<p></p>
+<p></p>
+<h2>Specials <%= link_to '+', new_special_path %></h2>
+<p></p>
+<p></p>
+<p></p>
 <ul>
   <% @service.specials.each do |special| %>
     <li>
