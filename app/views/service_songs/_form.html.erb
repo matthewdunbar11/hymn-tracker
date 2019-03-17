@@ -21,6 +21,11 @@
     <%= form.collection_select :song_id, Song.all, :id, :name, prompt: true %>
   </div>
 
+  <div class="field">
+    <%= form.label :service_song_type_id, 'Type' %>
+    <%= form.collection_select :service_song_type_id, ServiceSongType.all, :id, :name, prompt: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

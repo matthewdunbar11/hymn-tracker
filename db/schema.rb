@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_16_204315) do
+ActiveRecord::Schema.define(version: 2019_03_16_214919) do
 
   create_table "hymn_books", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "service_song_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -23,7 +29,9 @@ ActiveRecord::Schema.define(version: 2019_03_16_204315) do
     t.integer "song_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "service_song_type_id"
     t.index ["service_id"], name: "index_service_songs_on_service_id"
+    t.index ["service_song_type_id"], name: "index_service_songs_on_service_song_type_id"
     t.index ["song_id"], name: "index_service_songs_on_song_id"
   end
 

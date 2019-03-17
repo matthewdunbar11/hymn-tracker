@@ -1,0 +1,2 @@
+class ServiceSongType < ApplicationRecord
+end

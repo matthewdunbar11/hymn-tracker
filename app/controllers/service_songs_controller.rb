@@ -69,6 +69,6 @@ class ServiceSongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_song_params
-      params.require(:service_song).permit(:service_id, :song_id)
+      params.require(:service_song).permit(:service_id, :song_id, :service_song_type_id)
     end
 end
