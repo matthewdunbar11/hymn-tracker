@@ -28,7 +28,7 @@ class SpecialsController < ApplicationController
 
     respond_to do |format|
       if @special.save
-        format.html { redirect_to @special, notice: 'Special was successfully created.' }
+        format.html { redirect_to @special.special, notice: 'Special was successfully created.' }
         format.json { render :show, status: :created, location: @special }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SpecialsController < ApplicationController
   def update
     respond_to do |format|
       if @special.update(special_params)
-        format.html { redirect_to @special, notice: 'Special was successfully updated.' }
+        format.html { redirect_to @special.service, notice: 'Special was successfully updated.' }
         format.json { render :show, status: :ok, location: @special }
       else
         format.html { render :edit }
