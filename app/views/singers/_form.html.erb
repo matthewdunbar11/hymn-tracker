@@ -1,4 +1,4 @@
-<%= form_with(model: singer, local: true) do |form| %>
+<%= bootstrap_form_with(model: singer, local: true) do |form| %>
   <% if singer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(singer.errors.count, "error") %> prohibited this singer from being saved:</h2>
@@ -11,17 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.text_field :first_name %>
+  <%= form.text_field :last_name %>
+  <%= form.submit %>
 <% end %>

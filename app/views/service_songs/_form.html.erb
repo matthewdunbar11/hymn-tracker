@@ -1,4 +1,4 @@
-<%= form_with(model: service_song, local: true) do |form| %>
+<%= bootstrap_form_with(model: service_song, local: true) do |form| %>
   <% if service_song.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(service_song.errors.count, "error") %> prohibited this service_song from being saved:</h2>
@@ -11,22 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :service_id %>
-    <%= form.collection_select :service_id, Service.all, :id, :label, prompt: true %>
-  </div>
-
-  <div class="field">
-    <%= form.label :song_id %>
-    <%= form.collection_select :song_id, Song.all, :id, :name, prompt: true %>
-  </div>
-
-  <div class="field">
-    <%= form.label :service_song_type_id, 'Type' %>
-    <%= form.collection_select :service_song_type_id, ServiceSongType.all, :id, :name, prompt: true %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.collection_select :service_id, Service.all, :id, :label, prompt: true %>
+  <%= form.collection_select :song_id, Song.all, :id, :name, prompt: true %>
+  <%= form.collection_select :service_song_type_id, ServiceSongType.all, :id, :name, prompt: true %>
+  <%= form.submit %>
 <% end %>

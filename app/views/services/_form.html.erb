@@ -1,4 +1,4 @@
-<%= form_with(model: service, local: true) do |form| %>
+<%= bootstrap_form_with(model: service, local: true) do |form| %>
   <% if service.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
@@ -11,17 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :service_type_id %>
-    <%= form.collection_select :service_type_id, ServiceType.all, :id, :name, prompt: true %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.date_select :date %>
+  <%= form.collection_select :service_type_id, ServiceType.all, :id, :name, prompt: true %>
+  <%= form.submit %>
 <% end %>
