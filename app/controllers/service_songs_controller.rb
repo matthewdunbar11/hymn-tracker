@@ -14,7 +14,7 @@ class ServiceSongsController < ApplicationController
 
   # GET /service_songs/new
   def new
-    @service_song = ServiceSong.new
+    @service_song = ServiceSong.new(service_id: params[:service_id])
   end
 
   # GET /service_songs/1/edit
@@ -28,7 +28,7 @@ class ServiceSongsController < ApplicationController
 
     respond_to do |format|
       if @service_song.save
-        format.html { redirect_to @service_song, notice: 'Service song was successfully created.' }
+        format.html { redirect_to @service_song.service, notice: 'Service song was successfully created.' }
         format.json { render :show, status: :created, location: @service_song }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ServiceSongsController < ApplicationController
   def update
     respond_to do |format|
       if @service_song.update(service_song_params)
-        format.html { redirect_to @service_song, notice: 'Service song was successfully updated.' }
+        format.html { redirect_to @service_song.service, notice: 'Service song was successfully updated.' }
         format.json { render :show, status: :ok, location: @service_song }
       else
         format.html { render :edit }

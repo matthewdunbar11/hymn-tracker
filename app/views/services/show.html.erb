@@ -11,6 +11,7 @@
 </p>
 
 <h2>Songs</h2>
+<p><%= link_to 'Add', new_service_song_path(service_id: @service.id) %></p>
 <ul>
   <% @service.songs.each do |song| %>
     <li>
@@ -20,6 +21,7 @@
 </ul>
 
 <h2>Specials</h2>
+<p><%= link_to 'Add', new_special_path %></p>
 <ul>
   <% @service.specials.each do |special| %>
     <li>
