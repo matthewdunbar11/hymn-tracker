@@ -12,13 +12,15 @@
 
 <h2>Songs</h2>
 <p><%= link_to 'Add', new_service_song_path(service_id: @service.id) %></p>
-<ul>
-  <% @service.songs.each do |song| %>
-    <li>
-      <%= song.name %>
-    </li>
-  <% end %>
-</ul>
+<table>
+  <tbody class="sortable">  <!-- sortable target -->
+    <% @service.service_songs.order(:sort).each_with_sortable_id do |item, sortable_id| %>
+      <tr id="<%= sortable_id %>">  <!-- Needs id tag on sorting elements -->
+        <td><%= item.song.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <h2>Specials</h2>
 <p><%= link_to 'Add', new_special_path %></p>

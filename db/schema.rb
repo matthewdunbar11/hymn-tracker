@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_16_214919) do
+ActiveRecord::Schema.define(version: 2019_03_17_130912) do
 
   create_table "hymn_books", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_03_16_214919) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "service_song_type_id"
+    t.integer "sort"
     t.index ["service_id"], name: "index_service_songs_on_service_id"
     t.index ["service_song_type_id"], name: "index_service_songs_on_service_song_type_id"
     t.index ["song_id"], name: "index_service_songs_on_song_id"

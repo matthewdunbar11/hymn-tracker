@@ -37,7 +37,8 @@ gem 'bootstrap'
 gem 'bootstrap_form'
 gem 'devise'
 gem 'jquery-rails'
-
+gem 'jquery-ui-rails'
+gem 'rails_sortable'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
