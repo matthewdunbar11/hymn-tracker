@@ -1,36 +1,45 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= @service.service_type.name %> - <%= @service.date %></h1>
 
-<h2>Songs <%= link_to '+', new_service_song_path(service_id: @service.id) %></h2>
-<p></p>
-<p></p>
-<table>
-  <tbody class="sortable">  <!-- sortable target -->
-    <% @service.service_songs.order(:sort).each_with_sortable_id do |item, sortable_id| %>
-      <tr id="<%= sortable_id %>">  <!-- Needs id tag on sorting elements -->
-        <td><strong><%= item.song.page_number %></strong></td>
-        <td> - </td>
-        <td><%= item.song.name %></td>
-        <td>(<%= item.service_song_type.name %>)</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= link_to 'Edit', edit_service_path(@service), class: 'btn btn-outline-primary btn-sm' %>
+<%= link_to 'Delete', service_path(@service), method: :delete, class: 'btn btn-outline-danger btn-sm', confirm: 'Are you sure you want to delete this service?' %>
+<hr />
+<div class='row'>
+  <div class='col col-xs-12 col-md-6'>
+    <h2>Songs <%= link_to '+', new_service_song_path(service_id: @service.id) %></h2>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Page</th>
+          <th>Book</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody class="sortable">  <!-- sortable target -->
+        <% @service.service_songs.order(:sort).each_with_sortable_id do |item, sortable_id| %>
+          <%= link_to [:edit, item] do %>
+            <tr id="<%= sortable_id %>">  <!-- Needs id tag on sorting elements -->
+              <td><%= item.song.page_number %></td>
+              <td><%= item.song.hymn_book.name %></td>
+              <td><%= item.song.name %></td>
+              <td><%= item.service_song_type.name %></td>
+              <td><%= link_to 'Edit', [:edit, item] %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<p></p>
-<p></p>
-<h2>Specials <%= link_to '+', new_special_path %></h2>
-<p></p>
-<p></p>
-<p></p>
-<ul>
-  <% @service.specials.each do |special| %>
-    <li>
-      <%= special.singer.full_name %>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+  <div class='col col-xs-12 col-md-6'>
+    <h2>Specials <%= link_to '+', new_special_path %></h2>
+    <ul>
+      <% @service.specials.each do |special| %>
+        <li>
+          <%= special.singer.full_name %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
