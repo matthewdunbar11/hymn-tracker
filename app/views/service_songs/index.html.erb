@@ -7,14 +7,13 @@
     <tr>
       <th>Service</th>
       <th>Song</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @service_songs.each do |service_song| %>
       <tr>
-        <td><%= link_to service_song.service.label, service_song.service %></td>
+        <td><%= link_to "#{service_song.service.label} (#{service_song.service_song_type.name})", service_song.service %></td>
         <td><%= link_to service_song.song.name, service_song.song %></td>
       </tr>
     <% end %>
