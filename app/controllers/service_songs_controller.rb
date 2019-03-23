@@ -4,7 +4,7 @@ class ServiceSongsController < ApplicationController
   # GET /service_songs
   # GET /service_songs.json
   def index
-    @service_songs = ServiceSong.joins(:service).order('services.date', 'sort').all
+    @service_songs = ServiceSong.joins(:service).order('services.date', 'sort').where('services.date >= ?', Date.current).all
   end
 
   # GET /service_songs/1
