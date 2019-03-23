@@ -14,11 +14,8 @@
   <tbody>
     <% @service_songs.each do |service_song| %>
       <tr>
-        <td><%= service_song.service %></td>
-        <td><%= service_song.song %></td>
-        <td><%= link_to 'Show', service_song %></td>
-        <td><%= link_to 'Edit', edit_service_song_path(service_song) %></td>
-        <td><%= link_to 'Destroy', service_song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to service_song.service.label, service_song.service %></td>
+        <td><%= link_to service_song.song.name, service_song.song %></td>
       </tr>
     <% end %>
   </tbody>
