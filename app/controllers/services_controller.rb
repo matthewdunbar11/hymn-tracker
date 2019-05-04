@@ -15,6 +15,7 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+    @edit_mode = params.key?(:edit)
   end
 
   # GET /services/new
