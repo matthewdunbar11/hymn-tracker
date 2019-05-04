@@ -3,8 +3,10 @@
 <% if @showing_all %>
   <%= link_to 'Show Future', services_path %>
 <% else %>
-  <%= link-to 'Show All', services_path(all: true) %>
+  <%= link_to 'Show All', services_path(all: true) %>
 <% end %>
+<p></p>
+<p></p>
 <table>
   <tbody>
     <% @services.each do |service| %>

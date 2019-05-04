@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @showing_all = params.key?(:all])
+    @showing_all = params.key?(:all)
     if params[:all]
       @services = Service.all
     else
