@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-  <%= form.collection_select :service_id, Service.all, :id, :label, prompt: true %>
-  <%= form.collection_select :song_id, Song.all, :id, :name, prompt: true %>
+  <%= form.collection_select :service_id, Service.order(:date), :id, :label, prompt: true %>
+  <%= form.collection_select :song_id, Song.order(:name), :id, :name, prompt: true %>
   <%= form.collection_select :service_song_type_id, ServiceSongType.all, :id, :name, prompt: true %>
   <%= form.submit %>
 <% end %>
