@@ -42,6 +42,7 @@
               <td><%= item.service_song_type.name %></td>
               <% if @edit_mode %>
                 <td><%= link_to 'Edit', [:edit, item] %></td>
+                <td><%= link_to 'Delete', item, data: { confirm: 'Are you sure?' }, method: :delete %></td>
               <% end %>
             </tr>
           <% end %>

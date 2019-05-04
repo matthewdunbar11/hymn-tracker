@@ -56,7 +56,7 @@ class ServiceSongsController < ApplicationController
   def destroy
     @service_song.destroy
     respond_to do |format|
-      format.html { redirect_to service_songs_url, notice: 'Service song was successfully destroyed.' }
+      format.html { redirect_to service_url(@service_song.service), notice: 'Service song was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
