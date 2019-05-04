@@ -4,7 +4,12 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @services = Service.all
+    @showing_all = params.key?(:all])
+    if params[:all]
+      @services = Service.all
+    else
+      @services = Service.where('date >= ?', Date.current)
+    end
   end
 
   # GET /services/1

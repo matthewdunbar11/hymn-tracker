@@ -1,5 +1,10 @@
 <h1>Services</h1>
 
+<% if @showing_all %>
+  <%= link_to 'Show Future', services_path %>
+<% else %>
+  <%= link-to 'Show All', services_path(all: true) %>
+<% end %>
 <table>
   <tbody>
     <% @services.each do |service| %>
