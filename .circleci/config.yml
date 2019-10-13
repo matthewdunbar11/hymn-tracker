@@ -1,0 +1,8 @@
+orbs:
+  docker: circleci/docker@x.y.z
+version: 2.1
+workflows:
+  build-docker-image:
+    jobs:
+      - docker/publish:
+          image: matthewdunbar11/hymn-tracker
